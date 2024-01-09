@@ -87,16 +87,16 @@ install_dependencies() {
 
     case $DIST in
         alpine)
-            $Sudo apk add --update --no-cache git curl zsh
+            $Sudo apk add --update --no-cache git curl zsh fzf
         ;;
         amzn)
             $Sudo yum update -y
-            $Sudo yum install -y git zsh
+            $Sudo yum install -y git zsh fzf
             $Sudo yum install -y ncurses-compat-libs # this is required for AMZN Linux (ref: https://github.com/emqx/emqx/issues/2503)
         ;;
         *)
             $Sudo apt-get update
-            $Sudo apt-get -y install git curl zsh locales
+            $Sudo apt-get -y install git curl zsh fzf locales
             if [ "$VERSION" != "14.04" ]; then
                 $Sudo apt-get -y install locales-all
             fi
