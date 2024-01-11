@@ -18,7 +18,7 @@ One line installation: add the following line in your `Dockerfile`:
 
 ```Dockerfile
 # Default powerline10k theme, no plugins installed
-RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)"
+RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/releases/download/v1.1.6/zsh-in-docker.sh)"
 ```
 
 #### Optional arguments:
@@ -35,7 +35,7 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
   For example, if you want to enable [case sensitive completion](https://stackoverflow.com/a/28021691):
 
   ```Dockerfile
-  RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
+  RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/releases/download/v1.1.6/zsh-in-docker.sh)" -- \
   -a 'CASE_SENSITIVE="true"'
   ```
 
@@ -48,13 +48,13 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 ```Dockerfile
 # Uses "robbyrussell" theme (original Oh My Zsh theme), with no plugins
-RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
+RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/releases/download/v1.1.6/zsh-in-docker.sh)" -- \
     -t robbyrussell
 ```
 
 ```Dockerfile
 # Uses "git", "ssh-agent" and "history-substring-search" bundled plugins
-RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
+RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/releases/download/v1.1.6/zsh-in-docker.sh)" -- \
     -p git -p ssh-agent -p 'history-substring-search' \
     -a 'bindkey "\$terminfo[kcuu1]" history-substring-search-up' \
     -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down'
@@ -63,7 +63,7 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 ```Dockerfile
 # Uses "Spaceship" theme with some customization. Uses some bundled plugins and installs some more from github
-RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
+RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/releases/download/v1.1.6/zsh-in-docker.sh)" -- \
     -t https://github.com/denysdovhan/spaceship-prompt \
     -a 'SPACESHIP_PROMPT_ADD_NEWLINE="false"' \
     -a 'SPACESHIP_PROMPT_SEPARATE_LINE="false"' \
@@ -71,6 +71,17 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -p ssh-agent \
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
+```
+
+```Dockerfile
+# Uses "powerlevel10k" theme. Uses some bundled plugins and installs some from github
+RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/releases/download/v1.1.6/zsh-in-docker.sh)" -- \
+    -t powerlevel10k \
+    -p git \
+    -p ssh-agent \
+    -p ubuntu \
+    -p zsh-interactive-cd \
+    -p https://github.com/zsh-users/zsh-autosuggestions
 ```
 
 ## Notes
