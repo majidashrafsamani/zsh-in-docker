@@ -76,7 +76,6 @@ RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/release
 ```Dockerfile
 # Uses "powerlevel10k" theme. Uses some bundled plugins and installs some from github
 RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/releases/download/v1.1.7/zsh-in-docker.sh)" -- \
-    -t powerlevel10k/powerlevel10k \
     -p git \
     -p ubuntu \
     -p zsh-interactive-cd \
