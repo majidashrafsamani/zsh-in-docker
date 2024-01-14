@@ -76,12 +76,12 @@ RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/release
 ```Dockerfile
 # Uses "powerlevel10k" theme. Uses some bundled plugins and installs some from github
 RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/releases/download/v1.1.6/zsh-in-docker.sh)" -- \
-    -t powerlevel10k \
+    -t powerlevel10k/powerlevel10k \
     -p git \
-    -p ssh-agent \
     -p ubuntu \
     -p zsh-interactive-cd \
     -p https://github.com/zsh-users/zsh-autosuggestions
+    -p https://github.com/esc/conda-zsh-completion
 ```
 
 ## Notes

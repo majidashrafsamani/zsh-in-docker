@@ -117,18 +117,32 @@ zshrc_template() {
 export LANG='en_US.UTF-8'
 export LANGUAGE='en_US:en'
 export LC_ALL='en_US.UTF-8'
-export TERM=xterm
+export TERM=xterm-256color
 
 ##### Zsh/Oh-my-Zsh Configuration
 export ZSH="$_HOME/.oh-my-zsh"
 
 ZSH_THEME="${_THEME}"
+
+# Check if "conda-zsh-completion" is in the plugin list
+if grep -q "conda-zsh-completion" <<< "$_PLUGINS"; then
+    # Add conda completion configurations
+    zstyle ':completion::complete:*' use-cache 1
+    zstyle ':conda_zsh_completion:*' use-groups true
+    zstyle ':conda_zsh_completion:*' show-unnamed true
+    zstyle ':conda_zsh_completion:*' sort-envs-by-time true
+    zstyle ':conda_zsh_completion:*' show-global-envs-first true
+fi
+
 plugins=($_PLUGINS)
 
 EOM
     printf "$ZSHRC_APPEND"
     printf "\nsource \$ZSH/oh-my-zsh.sh\n"
 }
+
+# Initialize zsh completion system
+autoload -U compinit && compinit
 
 powerline10k_config() {
     cat <<EOM
@@ -137,6 +151,15 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_STATUS_OK=false
 POWERLEVEL9K_STATUS_CROSS=true
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Load fzf if installed for zsh-interactive-cd plugin
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# alises:
+alias zxc=clear
 EOM
 }
 
