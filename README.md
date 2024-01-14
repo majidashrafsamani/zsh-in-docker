@@ -80,7 +80,7 @@ RUN sh -c "$(wget -O- https://github.com/majidashrafsamani/zsh-in-docker/release
     -p git \
     -p ubuntu \
     -p zsh-interactive-cd \
-    -p https://github.com/zsh-users/zsh-autosuggestions
+    -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/esc/conda-zsh-completion
 ```
 
