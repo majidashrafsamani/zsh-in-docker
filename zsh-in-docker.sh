@@ -137,9 +137,10 @@ fi
 plugins=($_PLUGINS)
 
 EOM
-    printf "$ZSHRC_APPEND"
-    printf "\nsource \$ZSH/oh-my-zsh.sh\n"
+    printf "$ZSHRC_APPEND\n"
+    printf "source \$ZSH/oh-my-zsh.sh\n"
     cat <<EOM
+
 # Initialize zsh completion system
 autoload -U compinit && compinit
 
@@ -162,7 +163,6 @@ POWERLEVEL9K_STATUS_CROSS=true
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 EOM
 }
 
