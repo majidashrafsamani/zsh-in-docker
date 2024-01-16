@@ -139,10 +139,18 @@ plugins=($_PLUGINS)
 EOM
     printf "$ZSHRC_APPEND"
     printf "\nsource \$ZSH/oh-my-zsh.sh\n"
-}
-
+    cat <<EOM
 # Initialize zsh completion system
 autoload -U compinit && compinit
+
+# Load fzf if installed for zsh-interactive-cd plugin
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# alises:
+alias zxc=clear
+
+EOM
+}
 
 powerline10k_config() {
     cat <<EOM
@@ -155,11 +163,6 @@ POWERLEVEL9K_STATUS_CROSS=true
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Load fzf if installed for zsh-interactive-cd plugin
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# alises:
-alias zxc=clear
 EOM
 }
 
