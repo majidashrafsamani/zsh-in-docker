@@ -96,11 +96,13 @@ install_dependencies() {
         ;;
         *)
             $Sudo apt-get update
-            $Sudo apt-get -y install git curl zsh fzf locales
+            $Sudo apt-get -y install git curl zsh locales
             if [ "$VERSION" != "14.04" ]; then
                 $Sudo apt-get -y install locales-all
             fi
             $Sudo locale-gen en_US.UTF-8
+            git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+            ~/.fzf/install
     esac
 }
 
